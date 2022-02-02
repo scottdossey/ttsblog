@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Blog Site</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link href="webjars/bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">		
+	</head>
+	<body>
+		
+		<div class="container">
+			<h1>Create a New Blog Post</h1>
+			<form th:action="@{/blogposts}" th:object="${blogPost}" method="post">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Blog Title..." th:field="*{title}" />
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Your Name Here..." th:field="*{author}" />
+				</div>				
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Blog Entry..." th:field="*{blogEntry}" />
+			 	</div>
+			 	<button class="btn btn-primary">Submit Your Post</button>
+			</form>		
+	     </div>
+	     
+	     <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>	     	    
+	     <script src="/webjars/bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
+	     
+	</body>
+</html>

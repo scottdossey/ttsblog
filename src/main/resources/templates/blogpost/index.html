@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Blog Site</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link href="webjars/bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">		
+	</head>
+	<body>
+		<div class="container">
+		    <h1>Welcome to Our Blog Post Site!</h1>
+		    <h3>Check out our blogs!</h3>
+		    <div class="row">
+		    	<!--  Now we want to display all the blog posts -->
+		    	<!-- However when editing HTML, we don't know many -->
+		    	<!-- blog posts there are going to be...so what we'd like ->
+		    	<!-- to do is set up a repeating section that repeats as many ->
+		    	<!-- times as we have blog posts -->
+		    	<div class="col-md-6" th:each="blog:${posts}">		    				    
+	    			<div class="card">
+		    			<div class="card-header">
+		    				<p th:text="${blog.title}"/>	
+		    			</div>
+		    			<div class="card-body">
+		    				<p th:text="${blog.author}"/>
+		    				<p th:text="${blog.blogEntry}"/>	
+		    			</div>
+		    			<div class="card-footer">
+		    			</div>		    				    		
+		    		</div>		    	
+		    	</div>	    			   
+		    </div>
+	     </div>
+	     
+	     <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>	     	    
+	     <script src="/webjars/bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
+	     
+	</body>
+</html>
