@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>Blog Site</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<link href="webjars/bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">		
+		<th:block th:replace="fragments/stylehead"></th:block>			
 	</head>
 	<body>
 		<div class="container">
+			<div th:replace="/fragments/navbar"></div>
 		    <h1>Welcome to Our Blog Post Site!</h1>
 		    <h3>Check out our blogs!</h3>
 		    <div class="row">
@@ -24,15 +24,18 @@
 		    				<p th:text="${blog.author}"/>
 		    				<p th:text="${blog.blogEntry}"/>	
 		    			</div>
-		    			<div class="card-footer">
+		    			<div class="card-footer">		    				
+		    			    <a th:href="@{blogposts/{id}(id=${blog.id})}">
+		    			    	<button class="btn btn-light">Edit Post</button>
+		    			    </a>
+		    			    <a th:href="@{blogposts/delete/{id}(id=${blog.id})}">
+		    			    	<button class="btn btn-danger">Delete Post</button>
+		    			    </a>		    					    					    				
 		    			</div>		    				    		
 		    		</div>		    	
 		    	</div>	    			   
-		    </div>
+		    </div>		 		  
 	     </div>
-	     
-	     <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>	     	    
-	     <script src="/webjars/bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
-	     
+	     <th:block th:replace="fragments/stylebottom"></th:block>	     
 	</body>
 </html>
